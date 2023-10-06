@@ -13,12 +13,6 @@ import sys
 from atexit import register
 
 
-async def diulang():
-    while not await asyncio.sleep(7200):
-        def _():
-            os.execl(sys.executable, "python3", "-m", "Ayra")
-        register(_)
-        sys.exit(0)
 
 def main():
     import os
@@ -98,7 +92,6 @@ def main():
     # Edit Restarting Message (if It's restarting)
     ayra_bot.run_in_loop(WasItRestart(udB))
     
-    ayra_bot.run_in_loop(diulang())
 
     try:
         cleanup_cache()
