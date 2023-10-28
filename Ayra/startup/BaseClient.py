@@ -77,7 +77,7 @@ class AyraClient(TelegramClient):
             if self._handle_error:
                 self.logger.critical("String session expired. Create new!")
                 return sys.exit()
-            raise er
+            self.logger.critical("String session expired.")
         except (AccessTokenExpiredError, AccessTokenInvalidError):
             # AccessTokenError can only occur for Bot account
             # And at Early Process, Its saved in DB.
@@ -117,7 +117,7 @@ class AyraClient(TelegramClient):
         by_bot = self._bot
         size = os.path.getsize(file)
         # Don't show progress bar when file size is less than 5MB.
-        if size < 5 * 2**20:
+        if size < 5 * 2 **20:
             show_progress = False
         if use_cache and self._cache and self._cache.get("upload_cache"):
             for files in self._cache["upload_cache"]:
