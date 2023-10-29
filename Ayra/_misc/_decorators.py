@@ -58,7 +58,7 @@ def compile_pattern(data, hndlr):
         data = data[1:]
     if data.startswith("."):
         data = data[1:]
-    if hndlr in [" ", "NO_HNDLR"]:
+    if hndlr in [" ", "None"]:
         # No Hndlr Feature
         return re.compile("^" + data)
     return re.compile("\\" + hndlr + data)
